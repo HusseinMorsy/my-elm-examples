@@ -22,3 +22,4 @@ see also [Elm OpenWeatherMap example application](https://github.com/HusseinMors
 - [ ] see webpack usage in [Sierpinski triangle in Elm](https://github.com/halfzebra/elm-sierpinski)
 - [ ] JSON-API example
 - [ ] Websocket example
+- [ ] Testing
