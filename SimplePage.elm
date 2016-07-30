@@ -16,7 +16,7 @@ viewItem item =
 
 
 viewList model =
-    ul [] (List.map (\e -> viewItem e) model)
+    ul [] (List.map viewItem model)
 
 
 main =
