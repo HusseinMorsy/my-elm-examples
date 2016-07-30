@@ -41,11 +41,19 @@ model =
 
 type Msg
     = Check String
+    | CheckAll
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
+        CheckAll ->
+            let
+                checkItem item =
+                    { item | done = True }
+            in
+                { model | items = List.map checkItem model.items }
+
         Check name ->
             let
                 checkItem item =
@@ -65,6 +73,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ viewTitle model.title
+        , viewControlls
         , viewList model.items
         ]
 
@@ -72,6 +81,11 @@ view model =
 viewTitle : String -> Html Msg
 viewTitle title =
     h1 [] [ text title ]
+
+
+viewControlls : Html Msg
+viewControlls =
+    button [ onClick CheckAll ] [ text "Check all" ]
 
 
 viewList : List Item -> Html Msg
