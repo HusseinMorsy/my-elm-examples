@@ -17,5 +17,8 @@
 
 ## TODO
 
+
 - [ ] [Building a Live-Validated Signup Form in Elm](http://tech.noredink.com/post/129641182738/building-a-live-validated-signup-form-in-elm)
 - [ ] see webpack usage in [Sierpinski triangle in Elm](https://github.com/halfzebra/elm-sierpinski)
+- [ ] JSON-API example
+- [ ] Websocket example
