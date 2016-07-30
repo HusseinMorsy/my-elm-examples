@@ -11,6 +11,7 @@
 
 * [SimpleList.elm](SimpleList.elm). A simple shoppint list without interation. see [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3) for step by step tutorial.
 * [Grouped.elm](Grouped.elm). Shows a to group a List.
+* [InteractiveList.elm](InteractiveList.elm). Extended version of SimpleList.elm, where you can check items
 
 
 
