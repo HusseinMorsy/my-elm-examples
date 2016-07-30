@@ -13,7 +13,7 @@
 * [Grouped.elm](Grouped.elm). Shows a to group a List.
 * [InteractiveList.elm](InteractiveList.elm). Extended version of SimpleList.elm, where you can check items
 
-
+see also [Elm OpenWeatherMap example application](https://github.com/HusseinMorsy/elm-openweathermap-example)
 
 ## TODO
 
