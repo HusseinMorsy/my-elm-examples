@@ -42,6 +42,7 @@ model =
 type Msg
     = Check String
     | CheckAll
+    | DeleteChecked
 
 
 update : Msg -> Model -> Model
@@ -53,6 +54,13 @@ update msg model =
                     { item | done = True }
             in
                 { model | items = List.map checkItem model.items }
+
+        DeleteChecked ->
+            let
+                isNotChecked item =
+                    not item.done
+            in
+                { model | items = List.filter isNotChecked model.items }
 
         Check name ->
             let
@@ -85,7 +93,10 @@ viewTitle title =
 
 viewControlls : Html Msg
 viewControlls =
-    button [ onClick CheckAll ] [ text "Check all" ]
+    div []
+        [ button [ onClick CheckAll ] [ text "Check all" ]
+        , button [ onClick DeleteChecked ] [ text "Delete Checked" ]
+        ]
 
 
 viewList : List Item -> Html Msg
