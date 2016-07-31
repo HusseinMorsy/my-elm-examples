@@ -23,3 +23,4 @@ see also [Elm OpenWeatherMap example application](https://github.com/HusseinMors
 - [ ] JSON-API example
 - [ ] Websocket example
 - [ ] Testing
+- [ ] JavaScript interop
