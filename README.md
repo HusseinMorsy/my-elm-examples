@@ -12,6 +12,7 @@
 * [SimpleList.elm](SimpleList.elm). A simple shoppint list without interation. see [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3) for step by step tutorial.
 * [Grouped.elm](Grouped.elm). Shows a to group a List.
 * [InteractiveList.elm](InteractiveList.elm). Extended version of SimpleList.elm, where you can check items
+* [SimpleTest.elm](SimpleTest.elm). Show how to use ElmTest.
 
 see also [Elm OpenWeatherMap example application](https://github.com/HusseinMorsy/elm-openweathermap-example)
 
@@ -22,5 +23,5 @@ see also [Elm OpenWeatherMap example application](https://github.com/HusseinMors
 - [ ] see webpack usage in [Sierpinski triangle in Elm](https://github.com/halfzebra/elm-sierpinski)
 - [ ] JSON-API example
 - [ ] Websocket example
-- [ ] Testing
+- [x] Testing
 - [ ] JavaScript interop
