@@ -47,7 +47,11 @@ tests =
                 , test "reverse" <| assertEqual "CBA" (String.reverse "ABC")
                 ]
     in
-        suite "all Tests" [ mixedTests, listTests, stringTests ]
+        suite "SimpleTest"
+            [ mixedTests
+            , listTests
+            , stringTests
+            ]
 
 
 main : Program Never
