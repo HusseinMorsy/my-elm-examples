@@ -7,6 +7,17 @@ import Html.Events exposing (onInput)
 import Time exposing (..)
 
 
+main : Program Never
+main =
+    App.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+
 -- MODEL
 
 
@@ -97,13 +108,3 @@ view model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     every second Tick
-
-
-main : Program Never
-main =
-    App.program
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
