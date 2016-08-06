@@ -13,7 +13,8 @@
 * [Grouped.elm](Grouped.elm). Shows a to group a List.
 * [InteractiveList.elm](InteractiveList.elm). Extended version of SimpleList.elm, where you can check items
 * [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
-* [TimeoutForm.elm](TimeoutForm.elm). Show usage of Subscriptions and Time.
+* [TimeoutForm.elm](TimeoutForm.elm). Shows usage of Subscriptions and Time.
+* [MwstCalculator.elm](MwstCalculator.elm). Shows hows to convert Strings to Float.
 
 see also [Elm OpenWeatherMap example application](https://github.com/HusseinMorsy/elm-openweathermap-example)
 
