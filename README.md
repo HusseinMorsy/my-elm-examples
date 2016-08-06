@@ -9,6 +9,8 @@
 
 ## Simple Examples
 
+
+* [Counter.elm](Counter.elm).Counter example from the [Elm-Architecture guide](http://guide.elm-lang.org/architecture/user_input/buttons.html) with reset button
 * [SimpleList.elm](SimpleList.elm). A simple shoppint list without interation. see [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3) for step by step tutorial.
 * [Grouped.elm](Grouped.elm). Shows a to group a List.
 * [InterActiveList.elm](InterActiveList.elm). Extended version of SimpleList.elm, where you can check items
