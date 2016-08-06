@@ -1,5 +1,9 @@
 # My Elm examples
 
+## Requirements
+
+Elm 0.17
+
 ## Installation
 
 1. `npm -g elm`
