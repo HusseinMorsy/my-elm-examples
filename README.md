@@ -9,14 +9,13 @@
 
 ## Simple Examples
 
-
-* [Counter.elm](Counter.elm).Counter example from the [Elm-Architecture guide](http://guide.elm-lang.org/architecture/user_input/buttons.html) with reset button
-* [SimpleList.elm](SimpleList.elm). A simple shoppint list without interation. see [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3) for step by step tutorial.
-* [Grouped.elm](Grouped.elm). Shows a to group a List.
+* [Counter.elm](Counter.elm). Counter example from the [Elm-Architecture guide](http://guide.elm-lang.org/architecture/user_input/buttons.html) with reset button
+* [SimpleList.elm](SimpleList.elm). A simple shopping list without interaction. See [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3) for step by step tutorial.
+* [Grouped.elm](Grouped.elm). Shows how to group a List.
 * [InterActiveList.elm](InterActiveList.elm). Extended version of SimpleList.elm, where you can check items
 * [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
+* [MwstCalculator.elm](MwstCalculator.elm). Shows hows use input fields and how to convert Strings to Float.
 * [TimeoutForm.elm](TimeoutForm.elm). Shows usage of Subscriptions and Time.
-* [MwstCalculator.elm](MwstCalculator.elm). Shows hows to convert Strings to Float.
 
 see also [Elm OpenWeatherMap example application](https://github.com/HusseinMorsy/elm-openweathermap-example)
 
