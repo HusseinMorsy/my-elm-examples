@@ -1,13 +1,13 @@
 module Main exposing (..)
 
 import TodoList
-import Html as H
-import Html.App as App
+import Html
+import Html.App
 
 
 main : Program Never
 main =
-    App.beginnerProgram
+    Html.App.beginnerProgram
         { model = initialModel
         , update = update
         , view = view
@@ -86,17 +86,16 @@ updateTodoList targetId msg { id, todoList } =
 -- VIEW
 
 
-view : Model -> H.Html Msg
+view : Model -> Html.Html Msg
 view model =
-    H.div []
-        [ H.div []
+    Html.div []
+        [ Html.div []
             (List.map viewIndexedTodoList model)
-        , H.hr [] []
-        , H.p [] [ H.text <| toString model ]
+        , Html.hr [] []
+        , Html.p [] [ Html.text <| toString model ]
         ]
 
 
-viewIndexedTodoList : IndexedTodoList -> H.Html Msg
+viewIndexedTodoList : IndexedTodoList -> Html.Html Msg
 viewIndexedTodoList { id, todoList } =
-    -- App.map (updateTodoList id) (TodoList.view todoList)
-    App.map (TodoListMsg id) (TodoList.view todoList)
+    Html.App.map (TodoListMsg id) (TodoList.view todoList)

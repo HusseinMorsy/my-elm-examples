@@ -65,8 +65,7 @@ view model =
     H.div []
         [ H.h1 []
             [ H.text model.title ]
-        , H.ul
-            []
+        , H.ul []
             (List.map viewListItem model.todos)
         ]
 
@@ -85,4 +84,6 @@ viewListItem item =
                 Deleted ->
                     HA.style []
     in
-        H.li [ style item.state, Html.Events.onClick (Check item.id) ] [ H.text item.name ]
+        H.li [ style item.state, Html.Events.onClick (Check item.id) ]
+            [ H.text item.name
+            ]
