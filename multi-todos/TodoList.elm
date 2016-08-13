@@ -85,5 +85,6 @@ viewListItem item =
                     HA.style []
     in
         H.li [ style item.state, Html.Events.onClick (Check item.id) ]
-            [ H.text item.name
+            [ H.input [ HA.type' "checkbox", HA.checked (item.state == Done) ] []
+            , H.text item.name
             ]
