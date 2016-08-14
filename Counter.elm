@@ -53,7 +53,7 @@ update msg model =
 ----
 
 
-view : model -> Html Msg
+view : Model -> Html Msg
 view model =
     section []
         [ h1 [] [ text "Counter" ]
