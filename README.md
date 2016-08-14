@@ -19,6 +19,9 @@ Elm 0.17
 * [InterActiveList.elm](InterActiveList.elm). Extended version of SimpleList.elm, where you can check items
 * [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
 * [MwstCalculator.elm](MwstCalculator.elm). Shows hows use input fields and how to convert Strings to Float.
+
+## Intermediate Examples
+
 * [TimeoutForm.elm](TimeoutForm.elm). Shows usage of Subscriptions and Time.
 * [Mult-todos](multi-todos). Shows how to handle multiple todos like [List of counters](http://guide.elm-lang.org/architecture/modularity/counter_list.html)
 
