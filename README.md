@@ -20,6 +20,8 @@ Elm 0.17
 * [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
 * [MwstCalculator.elm](MwstCalculator.elm). Shows hows use input fields and how to convert Strings to Float.
 * [Currying.elm](Currying.elm). Shows how easy it is in ELm to use [currying](https://en.wikipedia.org/wiki/Currying)
+* [Exercises](knowthen-elm-beginners) from the [Elm for beginners course from James Moore](http://courses.knowthen.com/courses/elm-for-beginners)
+
 
 ## Intermediate Examples
 
