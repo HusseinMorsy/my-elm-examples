@@ -13,12 +13,18 @@ Elm 0.17
 
 ## Simple Examples
 
-* [Counter.elm](Counter.elm). Counter example from the [Elm-Architecture guide](http://guide.elm-lang.org/architecture/user_input/buttons.html) with reset button
-* [SimpleList.elm](SimpleList.elm). A simple shopping list without interaction. See [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3) for step by step tutorial.
+* [Counter.elm](Counter.elm). Counter example from the [Elm-Architecture guide](http://guide.elm-lang.org/architecture/user_input/buttons.html) with
+reset button
+* [SimpleList.elm](SimpleList.elm). A simple shopping list without interaction.
+See [Gist](https://gist.github.com/HusseinMorsy/8c726fc58be40722a147488db9da33e3)
+for step by step tutorial.
 * [Grouped.elm](Grouped.elm). Shows how to group a List.
-* [InterActiveList.elm](InterActiveList.elm). Extended version of SimpleList.elm, where you can check items
-* [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
-* [MwstCalculator.elm](MwstCalculator.elm). Shows hows use input fields and how to convert Strings to Float.
+* [InterActiveList.elm](InterActiveList.elm). Extended version of SimpleList.elm,
+where you can check items
+* [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test
+examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
+* [MwstCalculator.elm](MwstCalculator.elm). Shows hows use input fields and how
+to convert Strings to Float.
 * [Currying.elm](Currying.elm). Shows how easy it is in ELm to use [currying](https://en.wikipedia.org/wiki/Currying)
 * [Exercises](knowthen-elm-beginners) from the [Elm for beginners course from James Moore](http://courses.knowthen.com/courses/elm-for-beginners)
 
