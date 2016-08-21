@@ -4,7 +4,9 @@ import Html exposing (..)
 
 
 type alias Model =
-    { title : String, items : List Item }
+    { title : String
+    , items : List Item
+    }
 
 
 type alias Item =
@@ -13,7 +15,9 @@ type alias Item =
 
 model : Model
 model =
-    { title = "Shoppting List", items = [ "Apples", "Tomatos", "Banana" ] }
+    { title = "Shoppting List"
+    , items = [ "Apples", "Tomatos", "Banana" ]
+    }
 
 
 main : Html a
@@ -36,7 +40,10 @@ viewTitle title =
 
 viewList : List Item -> Html a
 viewList list =
-    ul [] (List.map viewItem list)
+    -- ul [] (List.map viewItem list)
+    list
+        |> List.map viewItem
+        |> ul []
 
 
 viewItem : Item -> Html a
