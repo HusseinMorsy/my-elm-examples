@@ -20,9 +20,9 @@ main =
 -- URL PARSERS
 
 
-toUrl : Maybe Page -> String
-toUrl page =
-    case page of
+toUrl : Maybe Location -> String
+toUrl location =
+    case location of
         Just Home ->
             "#/"
 
@@ -33,7 +33,7 @@ toUrl page =
             "#/"
 
 
-fromUrl : String -> Maybe Page
+fromUrl : String -> Maybe Location
 fromUrl url =
     case url of
         "#/" ->
@@ -46,7 +46,7 @@ fromUrl url =
             Nothing
 
 
-urlParser : Navigation.Parser (Maybe Page)
+urlParser : Navigation.Parser (Maybe Location)
 urlParser =
     Navigation.makeParser (fromUrl << .hash)
 
@@ -56,15 +56,15 @@ urlParser =
 
 
 type alias Model =
-    { page : Maybe Page }
+    { location : Maybe Location }
 
 
-init : Maybe Page -> ( Model, Cmd Msg )
-init page =
-    urlUpdate page { page = Just Home }
+init : Maybe Location -> ( Model, Cmd Msg )
+init location =
+    urlUpdate location { location = Just Home }
 
 
-type Page
+type Location
     = Home
     | Contact
 
@@ -74,7 +74,7 @@ type Page
 
 
 type Msg
-    = ChangePage Page
+    = NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -82,9 +82,9 @@ update msg model =
     model ! []
 
 
-urlUpdate : Maybe Page -> Model -> ( Model, Cmd Msg )
-urlUpdate page model =
-    { model | page = page } ! []
+urlUpdate : Maybe Location -> Model -> ( Model, Cmd Msg )
+urlUpdate location model =
+    { model | location = location } ! []
 
 
 
@@ -93,12 +93,12 @@ urlUpdate page model =
 
 view : Model -> Html Msg
 view model =
-    case model.page of
+    case model.location of
         Nothing ->
             viewPage model viewPageNotFound
 
-        Just page ->
-            case page of
+        Just location ->
+            case location of
                 Home ->
                     viewPage model viewHomepage
 
@@ -131,18 +131,18 @@ navigation model =
         ]
 
 
-viewLinkTo : Page -> Html Msg
-viewLinkTo page =
+viewLinkTo : Location -> Html Msg
+viewLinkTo location =
     let
         title =
-            case page of
+            case location of
                 Home ->
                     "Home"
 
                 Contact ->
                     "Contact"
     in
-        a [ href (toUrl (Just page)) ] [ text title ]
+        a [ href (toUrl (Just location)) ] [ text title ]
 
 
 viewHomepage : Model -> Html Msg
