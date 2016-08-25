@@ -24,34 +24,33 @@ main =
 -- URL PARSERS
 
 
-toUrl : Page -> String
+toUrl : Maybe Page -> String
 toUrl page =
     case page of
-        Home ->
+        Just Home ->
             "#/"
 
-        Contact ->
+        Just Contact ->
             "#/contact"
 
+        Nothing ->
+            "#/"
 
-fromUrl : String -> Page
+
+fromUrl : String -> Maybe Page
 fromUrl url =
-    let
-        _ =
-            Debug.log "url: " url
-    in
-        case url of
-            "#/" ->
-                Home
+    case url of
+        "#/" ->
+            Just Home
 
-            "#/contact" ->
-                Contact
+        "#/contact" ->
+            Just Contact
 
-            _ ->
-                Home
+        _ ->
+            Nothing
 
 
-urlParser : Navigation.Parser Page
+urlParser : Navigation.Parser (Maybe Page)
 urlParser =
     Navigation.makeParser (fromUrl << .hash)
 
@@ -61,12 +60,12 @@ urlParser =
 
 
 type alias Model =
-    { page : Page }
+    { page : Maybe Page }
 
 
-init : Page -> ( Model, Cmd Msg )
+init : Maybe Page -> ( Model, Cmd Msg )
 init page =
-    urlUpdate page { page = Home }
+    urlUpdate page { page = Just Home }
 
 
 type Page
@@ -84,12 +83,12 @@ type Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    case msg of
-        ChangePage page ->
-            Model page ! [ Navigation.newUrl (toUrl page) ]
+    -- ChangePage page ->
+    --     Model page ! [ Navigation.newUrl (toUrl page) ]
+    model ! []
 
 
-urlUpdate : Page -> Model -> ( Model, Cmd Msg )
+urlUpdate : Maybe Page -> Model -> ( Model, Cmd Msg )
 urlUpdate page model =
     { model | page = page } ! []
 
@@ -101,11 +100,16 @@ urlUpdate page model =
 view : Model -> Html Msg
 view model =
     case model.page of
-        Home ->
-            viewPage model homepage
+        Nothing ->
+            viewPage model viewPageNotFound
 
-        Contact ->
-            viewPage model contact
+        Just page ->
+            case page of
+                Home ->
+                    viewPage model viewHomepage
+
+                Contact ->
+                    viewPage model viewContact
 
 
 viewPage : Model -> (Model -> Html Msg) -> Html Msg
@@ -126,15 +130,15 @@ navigation : Model -> Html Msg
 navigation model =
     ul []
         [ li []
-            [ a [ href (toUrl Home) ] [ text "Home" ] ]
+            [ a [ href (toUrl (Just Home)) ] [ text "Home" ] ]
         , li
             []
-            [ a [ href (toUrl Contact) ] [ text "Contact" ] ]
+            [ a [ href (toUrl (Just Contact)) ] [ text "Contact" ] ]
         ]
 
 
-homepage : Model -> Html Msg
-homepage model =
+viewHomepage : Model -> Html Msg
+viewHomepage model =
     div []
         [ h1 []
             [ text "Hompage" ]
@@ -144,12 +148,21 @@ homepage model =
         ]
 
 
-contact : Model -> Html Msg
-contact model =
+viewContact : Model -> Html Msg
+viewContact model =
     div []
         [ h1 []
             [ text "Contact" ]
         , p
             []
             [ text "Send me a message" ]
+        ]
+
+
+viewPageNotFound : Model -> Html Msg
+viewPageNotFound model =
+    div []
+        [ h1 []
+            [ text "404" ]
+        , p [] [ a [ href (toUrl (Just Home)) ] [ text "Homepage" ] ]
         ]
