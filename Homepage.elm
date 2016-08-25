@@ -2,10 +2,6 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-
-
--- import Html.Events exposing (onClick)
-
 import Navigation
 
 
@@ -83,8 +79,6 @@ type Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    -- ChangePage page ->
-    --     Model page ! [ Navigation.newUrl (toUrl page) ]
     model ! []
 
 
@@ -130,11 +124,25 @@ navigation : Model -> Html Msg
 navigation model =
     ul []
         [ li []
-            [ a [ href (toUrl (Just Home)) ] [ text "Home" ] ]
+            [ viewLinkTo Home ]
         , li
             []
-            [ a [ href (toUrl (Just Contact)) ] [ text "Contact" ] ]
+            [ viewLinkTo Contact ]
         ]
+
+
+viewLinkTo : Page -> Html Msg
+viewLinkTo page =
+    let
+        title =
+            case page of
+                Home ->
+                    "Home"
+
+                Contact ->
+                    "Contact"
+    in
+        a [ href (toUrl (Just page)) ] [ text title ]
 
 
 viewHomepage : Model -> Html Msg
@@ -164,5 +172,5 @@ viewPageNotFound model =
     div []
         [ h1 []
             [ text "404" ]
-        , p [] [ a [ href (toUrl (Just Home)) ] [ text "Homepage" ] ]
+        , p [] [ viewLinkTo Home ]
         ]
