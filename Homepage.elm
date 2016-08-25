@@ -2,6 +2,7 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
 import Navigation
 
 
@@ -75,11 +76,17 @@ type Location
 
 type Msg
     = NoOp
+    | GoBack
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    model ! []
+    case msg of
+        GoBack ->
+            model ! [ Navigation.back 1 ]
+
+        NoOp ->
+            model ! []
 
 
 urlUpdate : Maybe Location -> Model -> ( Model, Cmd Msg )
@@ -117,7 +124,13 @@ viewPage model content =
 
 footer : Html Msg
 footer =
-    Html.footer [] [ text "Copyright 2016" ]
+    Html.footer []
+        [ button [ onClick GoBack ]
+            [ text "Go Back" ]
+        , p
+            []
+            [ text "Copyright 2016" ]
+        ]
 
 
 navigation : Model -> Html Msg
