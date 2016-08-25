@@ -2,13 +2,58 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
-import Html.App
+
+
+-- import Html.Events exposing (onClick)
+
+import Navigation
 
 
 main : Program Never
 main =
-    Html.App.program { init = ( initialModel, Cmd.none ), update = update, view = view, subscriptions = \_ -> Sub.none }
+    Navigation.program urlParser
+        { init = init
+        , update = update
+        , urlUpdate = urlUpdate
+        , view = view
+        , subscriptions = \_ -> Sub.none
+        }
+
+
+
+-- URL PARSERS
+
+
+toUrl : Page -> String
+toUrl page =
+    case page of
+        Home ->
+            "#/"
+
+        Contact ->
+            "#/contact"
+
+
+fromUrl : String -> Page
+fromUrl url =
+    let
+        _ =
+            Debug.log "url: " url
+    in
+        case url of
+            "#/" ->
+                Home
+
+            "#/contact" ->
+                Contact
+
+            _ ->
+                Home
+
+
+urlParser : Navigation.Parser Page
+urlParser =
+    Navigation.makeParser (fromUrl << .hash)
 
 
 
@@ -19,9 +64,9 @@ type alias Model =
     { page : Page }
 
 
-initialModel : Model
-initialModel =
-    { page = Home }
+init : Page -> ( Model, Cmd Msg )
+init page =
+    urlUpdate page { page = Home }
 
 
 type Page
@@ -41,7 +86,12 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ChangePage page ->
-            Model page ! []
+            Model page ! [ Navigation.newUrl (toUrl page) ]
+
+
+urlUpdate : Page -> Model -> ( Model, Cmd Msg )
+urlUpdate page model =
+    { model | page = page } ! []
 
 
 
@@ -76,10 +126,10 @@ navigation : Model -> Html Msg
 navigation model =
     ul []
         [ li []
-            [ a [ href "#1", onClick (ChangePage Home) ] [ text "Home" ] ]
+            [ a [ href (toUrl Home) ] [ text "Home" ] ]
         , li
             []
-            [ a [ href "#1", onClick (ChangePage Contact) ] [ text "Contact" ] ]
+            [ a [ href (toUrl Contact) ] [ text "Contact" ] ]
         ]
 
 
