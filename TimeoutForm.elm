@@ -32,11 +32,11 @@ initialModel =
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    initialModel ! []
 
 
 
---UPDATE
+-- UPDATE
 
 
 type Msg
@@ -53,21 +53,25 @@ update msg model =
         Tick _ ->
             { model
                 | timeLeft =
-                    if (timeElapsed model.timeLeft) then
-                        0
-                    else
+                    if (model.timeLeft > 0) then
                         model.timeLeft - 1
+                    else
+                        0
             }
                 ! []
 
 
-timeElapsed : Int -> Bool
-timeElapsed timeLeft =
-    timeLeft <= 0
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    every second Tick
 
 
 
---VIEW
+-- VIEW
 
 
 view : Model -> Html Msg
@@ -87,7 +91,7 @@ view model =
             , input
                 [ value model.name
                 , onInput UpdateName
-                , disabled <| timeElapsed model.timeLeft
+                , disabled (model.timeLeft == 0)
                 ]
                 []
             , p [] [ text ("Your entered Name is " ++ model.name) ]
@@ -99,12 +103,3 @@ view model =
                 ]
                 [ text ("Time left " ++ toString model.timeLeft) ]
             ]
-
-
-
--- SUBSCRIPTIONS
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    every second Tick
