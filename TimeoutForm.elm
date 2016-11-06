@@ -40,14 +40,14 @@ init =
 
 
 type Msg
-    = UpdateName String
+    = SetName String
     | Tick Float
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        UpdateName name ->
+        SetName name ->
             { model | name = name, timeLeft = initialModel.timeLeft } ! []
 
         Tick _ ->
@@ -90,7 +90,7 @@ view model =
             , label [] [ text "Enter your Name:" ]
             , input
                 [ value model.name
-                , onInput UpdateName
+                , onInput SetName
                 , disabled (model.timeLeft == 0)
                 ]
                 []
