@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (..)
-import List.Extra exposing (unique)
+import List.Extra
 
 
 -- MODEL
@@ -19,10 +19,6 @@ type alias CountryGroup =
     { country : String, airports : List Airport }
 
 
-type alias ListCountryGroup =
-    List CountryGroup
-
-
 initialModel : Model
 initialModel =
     [ { country = "Luxemburg", name = "Luxembourg Airport" }
@@ -33,16 +29,16 @@ initialModel =
     ]
 
 
-convertGroup : Model -> ListCountryGroup
-convertGroup model =
+groupByCountry : Model -> List CountryGroup
+groupByCountry model =
     let
-        countries =
-            List.map (\e -> e.country) model |> unique
-
         airportIn country =
             List.filter (\x -> x.country == country) model
     in
-        List.map (\c -> { country = c, airports = (airportIn c) }) countries
+        model
+            |> List.map .country
+            |> List.Extra.unique
+            |> List.map (\c -> { country = c, airports = (airportIn c) })
 
 
 
@@ -52,23 +48,18 @@ convertGroup model =
 view : Model -> Html a
 view model =
     let
-        listCountryGroup =
-            convertGroup model
+        viewGroup airportGroup =
+            div []
+                [ h1 [] [ text airportGroup.country ]
+                , ul [] (List.map viewAirport airportGroup.airports)
+                ]
+
+        viewAirport airport =
+            li [] [ text (airport.country ++ ": " ++ airport.name) ]
     in
-        div [] (List.map (\e -> viewGroup e) listCountryGroup)
-
-
-viewAirport : Airport -> Html a
-viewAirport airport =
-    li [] [ text (airport.country ++ ": " ++ airport.name) ]
-
-
-viewGroup : CountryGroup -> Html a
-viewGroup airportGroup =
-    div []
-        [ h1 [] [ text airportGroup.country ]
-        , ul [] (List.map (\e -> (viewAirport e)) airportGroup.airports)
-        ]
+        groupByCountry model
+            |> List.map viewGroup
+            |> div []
 
 
 main : Html a
