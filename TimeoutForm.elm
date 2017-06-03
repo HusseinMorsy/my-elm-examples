@@ -50,14 +50,7 @@ update msg model =
             { model | name = name, timeLeft = initialModel.timeLeft } ! []
 
         Tick _ ->
-            { model
-                | timeLeft =
-                    if (model.timeLeft > 0) then
-                        model.timeLeft - 1
-                    else
-                        0
-            }
-                ! []
+            { model | timeLeft = model.timeLeft - 1 } ! []
 
 
 
@@ -66,7 +59,10 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    every second Tick
+    if model.timeLeft > 0 then
+        every second Tick
+    else
+        Sub.none
 
 
 
