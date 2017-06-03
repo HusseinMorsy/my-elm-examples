@@ -1,17 +1,19 @@
 {
     "version": "1.0.0",
-    "summary": "helpful summary of your project, less than 80 characters",
+    "summary": "Test Suites",
     "repository": "https://github.com/user/project.git",
     "license": "BSD3",
     "source-directories": [
-        ".",
-        "multi-todos/"
+        "..",
+        "../multi-todos/",
+        "."
     ],
     "exposed-modules": [],
     "dependencies": {
+        "elm-lang/core": "5.1.1 <= v < 6.0.0",
+        "elm-community/elm-test": "4.0.0 <= v < 5.0.0",
         "debois/elm-mdl": "8.1.0 <= v < 9.0.0",
         "elm-community/list-extra": "6.1.0 <= v < 7.0.0",
-        "elm-lang/core": "5.1.1 <= v < 6.0.0",
         "elm-lang/html": "2.0.0 <= v < 3.0.0",
         "elm-lang/navigation": "2.1.0 <= v < 3.0.0",
         "thebritican/elm-autocomplete": "4.0.3 <= v < 5.0.0"

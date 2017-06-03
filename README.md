@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Elm 0.17
+Elm 0.18
 
 ## Installation
 
@@ -21,8 +21,6 @@ for step by step tutorial.
 * [Grouped.elm](Grouped.elm). Shows how to group a List.
 * [InterActiveList.elm](InterActiveList.elm). Extended version of SimpleList.elm,
 where you can check items
-* [SimpleTest.elm](SimpleTest.elm). Shows how to use ElmTest. For other test
-examples see [elm-lang/core test suite](https://github.com/elm-lang/core/tree/master/tests/Test)
 * [MwstCalculator.elm](MwstCalculator.elm). Shows hows use input fields and how
 to convert Strings to Float.
 * [Currying.elm](Currying.elm). Shows how easy it is in ELm to use [currying](https://en.wikipedia.org/wiki/Currying)
@@ -31,6 +29,7 @@ to convert Strings to Float.
 
 ## Intermediate Examples
 
+* [tests/Example.elm](tests/Example.elm). Shows how to write unit and fuzzy tests. See [elm-community/elm-test](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
 * [TimeoutForm.elm](TimeoutForm.elm). Shows usage of Subscriptions and Time.
 * [Mult-todos](multi-todos). Shows how to handle multiple todos like [List of counters](http://guide.elm-lang.org/architecture/modularity/counter_list.html)
 * [Homepage.elm](Homepage.elm). Simple SPA, that shows how to handle url navigation with [elm-lang/navigation](http://package.elm-lang.org/packages/elm-lang/navigation/latest)
