@@ -19,6 +19,16 @@ suite =
                     ""
                         |> String.isEmpty
                         |> Expect.true "Expected empty string"
+            , test "toInt success" <|
+                \_ ->
+                    "24"
+                        |> String.toInt
+                        |> Expect.equal (Ok 24)
+            , test "toInt failure" <|
+                \_ ->
+                    "24X"
+                        |> String.toInt
+                        |> Expect.equal (Err "could not convert string '24X' to an Int")
             ]
         , describe "List tests"
             [ test "length" <|
