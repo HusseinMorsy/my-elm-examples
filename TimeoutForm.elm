@@ -47,7 +47,7 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SetName name ->
-            { model | name = name, timeLeft = initialModel.timeLeft } ! []
+            { model | name = name } ! []
 
         Tick _ ->
             { model | timeLeft = model.timeLeft - 1 } ! []
