@@ -34,7 +34,7 @@ to convert Strings to Float.
 * [Mult-todos](multi-todos). Shows how to handle multiple todos like [List of counters](http://guide.elm-lang.org/architecture/modularity/counter_list.html)
 * [Homepage.elm](Homepage.elm). Simple SPA, that shows how to handle url navigation with [elm-lang/navigation](http://package.elm-lang.org/packages/elm-lang/navigation/latest)
 * [RandomCoin.elm](RandomCoin.elm). Show how to generate random values. See also [Elm-Guide](https://guide.elm-lang.org/architecture/effects/random.html)
-* [UuidGenerator.elm](UuidGenerator.elm). Generate UUID v.4. See [mgold/elm-random-pcg Package](http://package.elm-lang.org/packages/danyx23/elm-uuid/latest)
+* [UuidGenerator.elm](UuidGenerator.elm). Generate UUID v.4. See[mgold/elm-random-pcg Package](http://package.elm-lang.org/packages/danyx23/elm-uuid/latest) [mgold/elm-random-pcg Package](http://package.elm-lang.org/packages/mgold/elm-random-pcg/latest/)
 
 see also [Elm OpenWeatherMap example application](https://github.com/HusseinMorsy/elm-openweathermap-example)
 
